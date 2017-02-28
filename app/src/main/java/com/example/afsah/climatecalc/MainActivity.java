@@ -35,9 +35,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        activateUI();
+        activeUI();
     }
-    public void activateUI(){
+    public void activeUI(){
 
         button1 = (Button)findViewById(R.id.button1);
         textView2 = (TextView)findViewById(R.id.textView2);
