@@ -191,8 +191,16 @@
         android:layout_height="50dp"
         android:layout_marginTop="161dp"
         android:id="@+id/button1"
-        android:layout_x="130dp"
-        android:layout_y="440dp" />
+        android:layout_x="235dp"
+        android:layout_y="436dp" />
+
+    <Button
+        android:text="GPS"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_x="63dp"
+        android:layout_y="436dp"
+        android:id="@+id/button2" />
 
 
 </AbsoluteLayout>

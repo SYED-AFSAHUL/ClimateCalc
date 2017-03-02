@@ -26,18 +26,19 @@ public class MainActivity extends AppCompatActivity {
 
     EditText editText;
 
-    URL url;
+   // URL url;
 
     String place;
-    String result = "";
+  //  String result = "";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        acti();
+        activateUI();
+
     }
-    public void acti(){
+    public void activateUI(){
 
         button1 = (Button)findViewById(R.id.button1);
         textView2 = (TextView)findViewById(R.id.textView2);
