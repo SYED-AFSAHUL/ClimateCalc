@@ -1,6 +1,7 @@
 package com.example.afsah.climatecalc;
 
 import android.os.AsyncTask;
+import android.util.Log;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -9,6 +10,8 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.URL;
 import java.net.URLConnection;
+
+import static android.webkit.ConsoleMessage.MessageLevel.LOG;
 
 /**
  * Created by afsah on 28-Feb-2017.
@@ -21,18 +24,34 @@ public class getData extends AsyncTask<String, Integer, String> {
     String result = "";
     StringBuffer reqStr = new StringBuffer();
     String place;
+    double lat;
+    double lon;
+    String urlstr;
     String temp,pressure,humidity,temp_min,temp_max,speed,sunrise,sunset,description,name,country;
 
-    public getData(String place){
-        this.place = place;
+    public getData(){}
+
+    public void setUp(String place,double lat, double lon,int select){
+        Log.d("TAG","in set up");
+        if(select == 1) {
+            this.place = place;
+            urlstr = new String("http://api.openweathermap.org/data/2.5/weather?q=" +
+                    place + "&appid=d10e623992ad780085517dd010152cb6");
+        }else{
+            this.place = place;
+            this.lat = lat;
+            this.lon = lon;
+            urlstr = new String("http://api.openweathermap.org/data/2.5/weather?lat=" + lat +
+                            "&lon=" + lon + "&appid=d10e623992ad780085517dd010152cb6");
+            Log.d("TAG","in set up - 0");
+        }
     }
 
     @Override
     protected String doInBackground(String... strings) {
         try {
 
-            String urlstr = new String("http://api.openweathermap.org/data/2.5/weather?q="+
-                    place + "&appid=d10e623992ad780085517dd010152cb6");
+            Log.d("TAG","doInBackground");
             // get URL content
             url = new URL(urlstr);
             URLConnection conn = url.openConnection();
@@ -51,7 +70,7 @@ public class getData extends AsyncTask<String, Integer, String> {
         }
 
         try {
-
+            System.out.println("*******************************" + result);
             JSONObject jsonObject = new JSONObject(result);
 
             JSONObject objMain = new JSONObject(jsonObject.getString("main"));
