@@ -69,7 +69,6 @@ public class getData extends AsyncTask<String, Integer, String> {
         }
 
         try {
-            System.out.println("*******************************" + result);
             JSONObject jsonObject = new JSONObject(result);
 
             JSONObject objMain = new JSONObject(jsonObject.getString("main"));
