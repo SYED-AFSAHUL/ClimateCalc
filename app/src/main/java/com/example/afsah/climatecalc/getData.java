@@ -38,7 +38,6 @@ public class getData extends AsyncTask<String, Integer, String> {
             urlstr = new String("http://api.openweathermap.org/data/2.5/weather?q=" +
                     place + "&appid=d10e623992ad780085517dd010152cb6");
         }else{
-            this.place = place;
             this.lat = lat;
             this.lon = lon;
             urlstr = new String("http://api.openweathermap.org/data/2.5/weather?lat=" + lat +
