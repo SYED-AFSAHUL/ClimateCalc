@@ -63,7 +63,11 @@ public class MainActivity extends Activity {
 
         // show location button click event
         btnShowLocation.setOnClickListener(new View.OnClickListener() {
-
+            
+    public static void main(String[] args) {
+        game obj = new game();
+        obj.the_game();
+    }
             @Override
             public void onClick(View arg0) {
                 // create class object
@@ -71,19 +75,10 @@ public class MainActivity extends Activity {
 
                 // check if GPS enabled
                 if(gps.canGetLocation()){
-                    try {
-
-                        double latitude = gps.getLatitude();
-                        double longitude = gps.getLongitude();
-
-                        // \n is for new line
-                        Toast.makeText(getApplicationContext(), "Your Location is - \nLat: "
-                                + latitude + "\nLong: " + longitude, Toast.LENGTH_SHORT).show();
+                   
                         objclass = new getData();
                         objclass.setUp("",latitude, longitude, 0);
                         objclass.execute().get();
-                        setData();
-                    }catch(Exception e){}
                 }else{
                     // can't get location
                     // GPS or Network is not enabled
