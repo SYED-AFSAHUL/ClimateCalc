@@ -21,7 +21,7 @@ public class getData extends AsyncTask<String, Integer, String> {
 
     URL url;
 
-    String result = "";
+    String result = "--";
     StringBuffer reqStr = new StringBuffer();
     String place;
     double lat;
@@ -29,7 +29,7 @@ public class getData extends AsyncTask<String, Integer, String> {
     String urlstr;
     String temp,pressure,humidity,temp_min,temp_max,speed,sunrise,sunset,description,name,country;
 
-    public getData(){}
+    public getData(){}   //empty constructor
 
     public void setUp(String place,double lat, double lon,int select){
         Log.d("TAG","in set up");
