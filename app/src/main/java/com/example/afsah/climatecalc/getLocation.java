@@ -7,12 +7,6 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.location.Location;
-import android.location.LocationListener;
-import android.location.LocationManager;
-import android.os.Bundle;
-import android.os.IBinder;
-import android.provider.Settings;
-import android.util.Log;
 
 /**
  * Created by afsah on 28-Feb-2017.
@@ -84,11 +78,6 @@ public class getLocation extends Service implements LocationListener {
 
                 // if GPS Enabled get lat/long using GPS Services
                 if (isGPSEnabled) {
-                    if (location == null) {
-                        locationManager.requestLocationUpdates(
-                                LocationManager.GPS_PROVIDER,
-                                MIN_TIME_BW_UPDATES,
-                                MIN_DISTANCE_CHANGE_FOR_UPDATES, this);
 
                         Log.d("GPS Enabled", "GPS Enabled");
                         if (locationManager != null) {
@@ -107,7 +96,15 @@ public class getLocation extends Service implements LocationListener {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
+@Override
+    public void paint(Graphics g){
+        System.out.println("\tpaint");
+        
+        super.paint(g);
+        
+        System.out.println(l_s);
+        System.out.println("\tpaint ends");
+    }
         return location;
     }
 
