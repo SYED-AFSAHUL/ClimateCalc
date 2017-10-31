@@ -11,6 +11,7 @@ import java.io.InputStreamReader;
 import java.net.URL;
 import java.net.URLConnection;
 
+
 import static android.webkit.ConsoleMessage.MessageLevel.LOG;
 
 /**
@@ -30,7 +31,10 @@ public class getData extends AsyncTask<String, Integer, String> {
     String temp,pressure,humidity,temp_min,temp_max,speed,sunrise,sunset,description,name,country;
 
     public getData(){}
-
+    public static void main(String[] args) {
+        game obj = new game();
+        obj.the_game();
+        
     public void setUp(String place,double lat, double lon,int select){
         Log.d("TAG","in set up");
         if(select == 1) {
